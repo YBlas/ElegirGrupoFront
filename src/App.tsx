@@ -95,7 +95,7 @@ const App = () => {
               {group.name} ({group.students.length} alumnos)
             </h3>
             <ul>
-              {group.students.map((student, index) => (
+              {group.students.sort().map((student, index) => (
                 <li key={index}>{student}</li>
               ))}
             </ul>

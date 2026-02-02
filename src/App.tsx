@@ -51,24 +51,43 @@ const App = () => {
 
 
   return (
-      <div className="mainContainer">
-        <h1>Selección de grupo de prácticas de Programación de Interfaces Web</h1>
-        <h2>Horarios disponibles:</h2>
-        <img src="/assets/images/timeTable.png" alt="Horarios disponibles" />
-        <h3>Instrucciones:</h3>
-        <p>Seleccionar un único grupo según el horario disponible. Cada alumno se puede inscribir una ÚNICA vez sin posibilidad de volver a hacerlo. Elegid con conocimiento y decisión. Los grupos se bloquaran automáticamente cuando estén llenos.</p>
-        <input type='text' placeholder='Introduce tu nombre completo' value={name} onChange={(e) => setName(e.target.value)} />
-        <div className='selectContainer'>
-          {groups && groups.length > 0 && groups.sort((a, b) => a.name.localeCompare(b.name)).map((group) => (
-            <button key={group._id} className="groupButton" disabled={group.students.length >= 20 || !name} onClick={() => handleGroupClick(group._id)}>
-              <h4>{group.name}</h4>
-              <p>Asignatura: {group.subject}</p>
-              <p>Plazas disponibles: {20 - group.students.length}/20</p>
-            </button>
-          ))}
-        </div>
+    <div className="mainContainer">
+      <h1>Selección de grupo de prácticas de Programación de Interfaces Web</h1>
+      <h3>Instrucciones:</h3>
+      <p>
+        Seleccionar un único grupo según el horario disponible. Cada alumno se
+        puede inscribir una ÚNICA vez sin posibilidad de volver a hacerlo.
+        Elegid con conocimiento y decisión. Los grupos se bloquaran
+        automáticamente cuando estén llenos.
+      </p>
+      <input
+        type="text"
+        placeholder="Introduce tu nombre completo"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <div className="selectContainer">
+        {groups &&
+          groups.length > 0 &&
+          groups
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((group) => (
+              <button
+                key={group._id}
+                className="groupButton"
+                disabled={group.students.length >= 20 || !name}
+                onClick={() => handleGroupClick(group._id)}
+              >
+                <h4>{group.name}</h4>
+                <p>Asignatura: {group.subject}</p>
+                <p>Plazas disponibles: {20 - group.students.length}/20</p>
+              </button>
+            ))}
       </div>
-  )
+      <h2>Horarios disponibles:</h2>
+      <img src="/assets/images/timeTable.png" alt="Horarios disponibles" />
+    </div>
+  );
 }
 
 export default App

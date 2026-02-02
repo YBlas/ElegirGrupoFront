@@ -96,7 +96,18 @@ const App = () => {
             </h3>
             <ul>
               {group.students.sort().map((student, index) => (
-                <li key={index}>{student}</li>
+                <li
+                  key={index}
+                  style={{
+                    color: groups.some(
+                      (g) => g.students.filter((s) => s === student).length > 1,
+                    )
+                      ? "red"
+                      : "black",
+                  }}
+                >
+                  {student}
+                </li>
               ))}
             </ul>
           </div>

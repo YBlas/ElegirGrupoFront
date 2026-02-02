@@ -11,6 +11,9 @@
   width: 100%;
 }
 
+.mainContainer h1 {
+  text-align: center;
+}
 .mainContainer img {
   width: 100%;
   margin-bottom: 20px;

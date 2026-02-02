@@ -86,6 +86,21 @@ const App = () => {
       </div>
       <h2>Horarios disponibles:</h2>
       <img src="/assets/images/timeTable.png" alt="Horarios disponibles" />
+      <h2>Alumnos registrados actualmente:</h2>
+      {groups &&
+        groups.length > 0 &&
+        groups.map((group) => (
+          <div key={group._id} className="registeredGroup">
+            <h3>
+              {group.name} ({group.students.length} alumnos)
+            </h3>
+            <ul>
+              {group.students.map((student, index) => (
+                <li key={index}>{student}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
     </div>
   );
 }

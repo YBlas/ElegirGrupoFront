@@ -80,7 +80,7 @@ const App = () => {
               >
                 <h4>{group.name}</h4>
                 <p>Asignatura: {group.subject}</p>
-                <p>Plazas disponibles: {20 - group.students.length}/20</p>
+                <p>Plazas disponibles: {24 - group.students.length}/24</p>
               </button>
             ))}
       </div>

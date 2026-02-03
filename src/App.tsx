@@ -75,7 +75,7 @@ const App = () => {
               <button
                 key={group._id}
                 className="groupButton"
-                disabled={group.students.length >= 20 || !name}
+                disabled={group.students.length >= 24 || !name}
                 onClick={() => handleGroupClick(group._id)}
               >
                 <h4>{group.name}</h4>
